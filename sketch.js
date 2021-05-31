@@ -10,7 +10,7 @@ function preload() {
   catImg=loadAnimation("images/cat1.png");
   mouseImg=loadAnimation("images/mouse1.png")
   mouseImg2=loadAnimation("images/mouse2.png","images/mouse3.png")
-  catImg2=loadAnimation("images/cat2.png","image/cat3,png")
+  catImg2=loadAnimation("images/cat2.png","images/cat3.png")
   mouseImg3=loadAnimation("images/mouse4.png")
   catImg3=loadAnimation("images/cat4.png")
 }
@@ -18,22 +18,20 @@ function preload() {
 function setup(){
     createCanvas(1000,800);
     //create tom and jerry sprites here
- bg=createSprite(500,400);
- bg.addImage(bgImg);
-bg.scale=1;
+ 
 
-cat=createSprite(500,600);
+cat=createSprite(870,600);
 cat.addAnimation("catsleeping",catImg);
-cat.scale=0.15
+cat.scale=0.2;
 
-mouse=createSprite(100,600);
+mouse=createSprite(200,600);
 mouse.addAnimation("mousestanding",mouseImg);
 mouse.scale=0.15;
 }
 
 function draw() {
 
-    background(255);
+    background(bgImg);
 
     //Write condition here to evalute if tom and jerry collide
     if(cat.x-mouse.x<(cat.width-mouse.width)/2){
@@ -57,11 +55,11 @@ function keyPressed(){
     cat.velocityX = -5; 
     cat.addAnimation("catRunning", catImg2);
     cat.changeAnimation("catRunning");
-  }
-//    if(keyCode === RIGHT_ARROW){
+ 
     mouse.addAnimation("mouseTeasing", mouse2Img2);
-    mouse.changeAnimation("mouseTeasing");
     mouse.frameDelay = 25;
-//}
+    mouse.changeAnimation("mouseTeasing");
+
+}
 
 }
